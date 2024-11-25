@@ -1,0 +1,29 @@
+<div class="filter">
+    <button class="btn2" (click)="Show()">Filter</button>
+    <div class="filterinput" *ngIf="isShow">
+<div class="btn-group">
+    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Action
+    </button>
+    <ul class="dropdown-menu">
+      <li><button class="dropdown-item" (click)="setCategory('Smartphone')" type="button">Smartphone</button></li>
+      <li><button class="dropdown-item" (click)="setCategory('Computer')" type="button">Computer</button></li>
+      <li><button class="dropdown-item" (click)="setCategory('Headphone')" type="button">HeadPhone</button></li>
+    </ul>
+  </div>
+          <div class="filterinp">
+           <input type="number" class="form-control" [(ngModel)]="minNumber" placeholder="MinPrice" aria-label="MinPrice" aria-describedby="addon-wrapping">
+           <input type="number" class="form-control" [(ngModel)]="MaxNumber" placeholder="MaxPrice" aria-label="MaxPrice" aria-describedby="addon-wrapping">
+            <button class="btn3" (click)="applyFilters()" >Search</button>
+          </div>
+    </div>
+</div>
+
+<div class="conteiner"><div class="card" *ngFor="let item of filterList">
+    <span class="title">{{item.title}}</span>
+    <img [src]="item.image" alt="">
+    <span>ფასი : {{item.price}} </span>
+    <span>გამოშვების წელი : {{item.date}} </span>
+   
+    </div>
+    </div>
